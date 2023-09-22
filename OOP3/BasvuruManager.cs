@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 namespace OOP3
 {
      class BasvuruManager
-    {
-        public void BasvuruYap(IKrediManager krediManager)
+     {
+         
+        //Method injection 
+        public void BasvuruYap(IKrediManager krediManager, ILoggerService loggerService)
         {
             //Başvuran bilgilerini değerlendirme
             //
 
             krediManager.Hesapla();
-
+            loggerService.Log(); //Hangi logger seçilmiş ise onu logla diyoruz.
         }
 
         public void KrediOnBilgilendirmesiYap(List<IKrediManager> krediler)
@@ -24,6 +26,6 @@ namespace OOP3
             {
                 kredi.Hesapla();
             }
-        }
+        } 
     }
 }
